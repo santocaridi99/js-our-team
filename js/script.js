@@ -61,6 +61,20 @@ for(let i=0; i<team.length;i++){
   }
 }
 
+const button = document.getElementById('addMemberButton');
+
+button.addEventListener('click',function(){
+  //creo un nuovo oggetto member
+  let member ={
+    name: document.getElementById('name').value,
+    role: document.getElementById('role').value,
+    image: document.getElementById('image').value,
+  };
+  console.log(member);
+  //pusho a team il nuovo oggetto member
+  team.push(member);
+})
+
 
 
 
