@@ -70,11 +70,10 @@ button.addEventListener('click',function(){
     role: document.getElementById('role').value,
     image: document.getElementById('image').value,
   };
-  teamContainer.innerHTML='';
   console.log(member);
   //pusho a team il nuovo oggetto member
   team.push(member);
-  createCard()
+  createCard()//richiamo function creazione card
 })
 
 
