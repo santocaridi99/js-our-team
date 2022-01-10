@@ -34,33 +34,33 @@ const team = [
 //dichiaro variabile che si attacca al teamcontainer
 const teamContainer = document.querySelector('.team-container');
 //per ogni elemento del nostro array
-for(let i=0; i<team.length;i++){
-  //creo un div classe teamcard che appendo al container
-  const teamCard = document.createElement('div');
-  teamCard.className='team-card';
-  teamContainer.append(teamCard);
-  //creo un div classe cardImg che appendo al teamcard
-  const cardImage = document.createElement('div');
-  cardImage.className='card-image';
-  teamCard.append(cardImage);
-  // un tag img appeso al div cardImg
-  const img=document.createElement('img');
-  cardImage.append(img);
-  //un div cardText appeso al div class team card
-  const cardText = document.createElement('div');
-  cardText.className='card-text';
-  teamCard.append(cardText);
-  //ciclo per ogni key presente negli oggetti dell'array
-  for(let k in team[i]){
+function createCard(){
+  for(let i=0; i<team.length;i++){
+    //creo un div classe teamcard che appendo al container
+    const teamCard = document.createElement('div');
+    teamCard.className='team-card';
+    teamContainer.append(teamCard);
+    //creo un div classe cardImg che appendo al teamcard
+    const cardImage = document.createElement('div');
+    cardImage.className='card-image';
+    teamCard.append(cardImage);
+    // un tag img appeso al div cardImg
+    const img=document.createElement('img');
+    cardImage.append(img);
+    //un div cardText appeso al div class team card
+    const cardText = document.createElement('div');
+    cardText.className='card-text';
+    teamCard.append(cardText);
     //cambio attributi al tag img 
     img.setAttribute("alt",team[i].name);
     //cambio src al tag img
     img.src=team[i].image;
     //inserisco nell'htm nel div cardtext i nomi e i ruoli delle card
     cardText.innerHTML=`<h3>${team[i].name}</h3><p>${team[i].role}</p>`
+  
   }
 }
-
+createCard(); //creo card
 const button = document.getElementById('addMemberButton');
 
 button.addEventListener('click',function(){
@@ -70,10 +70,14 @@ button.addEventListener('click',function(){
     role: document.getElementById('role').value,
     image: document.getElementById('image').value,
   };
+  teamContainer.innerHTML='';
   console.log(member);
   //pusho a team il nuovo oggetto member
   team.push(member);
+  createCard()
 })
+
+
 
 
 
