@@ -70,6 +70,8 @@ button.addEventListener('click',function(){
     role: document.getElementById('role').value,
     image: document.getElementById('image').value,
   };
+  //pulisco il container
+  teamContainer.innerHTML='';
   console.log(member);
   //pusho a team il nuovo oggetto member
   team.push(member);
