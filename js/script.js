@@ -34,7 +34,7 @@ const team = [
 //dichiaro variabile che si attacca al teamcontainer
 const teamContainer = document.querySelector('.team-container');
 //per ogni elemento del nostro array
-function createCard(){
+function createCard(teamContainer,team){
   for(let i=0; i<team.length;i++){
     //creo un div classe teamcard che appendo al container
     const teamCard = document.createElement('div');
@@ -60,7 +60,7 @@ function createCard(){
   
   }
 }
-createCard(); //creo card
+createCard(teamContainer,team); //creo card
 const button = document.getElementById('addMemberButton');
 
 button.addEventListener('click',function(){
@@ -75,7 +75,7 @@ button.addEventListener('click',function(){
   console.log(member);
   //pusho a team il nuovo oggetto member
   team.push(member);
-  createCard()//richiamo function creazione card
+  createCard(teamContainer,team)//richiamo function creazione card
 })
 
 
